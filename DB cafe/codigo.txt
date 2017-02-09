@@ -1,0 +1,109 @@
+create database cafe;
+use cafe;
+
+create table producto 
+(
+idproducto int (3) auto_increment not null,
+lineapresentacion varchar(20) not null,
+precio double not null,
+primary key (idproducto)
+);
+
+describe producto;
+
+load data local infile 'C:/32/producto.txt'
+into table producto
+fields terminated by ','
+lines terminated by '\r\n'
+ignore 1 lines (lineapresentacion,precio);
+
+select*from producto;
+
+create table vendedor
+(
+idvendedor int(2) auto_increment not null,
+nombrevendedor varchar(40) not null,
+primary key (idvendedor)
+);
+describe vendedor;
+
+load data local infile 'C:/32/vendedor.txt'
+into table vendedor
+fields terminated by ','
+lines terminated by '\r\n'
+ignore 1 lines (nombrevendedor);
+
+select*from vendedor;
+
+create table cliente
+(
+idcliente int (2) auto_increment not null,
+nombrecliente varchar (40) not null,
+numdocumento varchar (20) not null,
+direccion varchar (40) not null,
+idvendedor int (2) not null,
+primary key (idcliente),
+foreign key (idvendedor) references vendedor
+);
+
+describe cliente;
+
+load data local infile 'C:/32/cliente.txt'
+into table cliente
+fields terminated by ','
+lines terminated by '\r\n'
+ignore 1 lines (nombrecliente,numdocumento,direccion,idvendedor);
+
+select*from cliente;
+
+
+create table pedido
+(
+idpedido int(5) auto_increment not null,
+cantidadproducto int(4) not null,
+idcliente int(2) not null,
+idproducto int (2) not null,
+primary key (idpedido),
+foreign key (idcliente) references cliente,
+foreign key (idproducto) references producto
+);
+
+describe pedido;
+
+load data local infile 'C:/32/pedido.txt'
+into table pedido
+fields terminated by ','
+lines terminated by '\r\n'
+ignore 1 lines (cantidadproducto,idcliente,idproducto);
+
+select*from pedido;
+
+
+select nombrecliente
+from cliente
+where (idcliente=6);
+
+select lineapresentacion
+from producto 
+where (idproducto=2);
+
+select sum (cantidadproducto)
+from pedido
+where (idproducto=1);
+
+select*from pedido where idpedido=(select idcliente from cliente where (nombrecliente="martha pacheco"));
+
+select nombrecliente
+from cliente
+order by nombrecliente asc;
+
+
+select AVG (precio) promedio_precios from producto;
+
+
+select idcliente,direccion
+from cliente
+where (idcliente=6);
+
+select lineaspresentacion,precio
+from producto;

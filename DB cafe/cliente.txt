@@ -1,0 +1,11 @@
+nombrecliente,numdocumento,direccion,idvendedor
+laura mallorca, 104564749,Carrera 15 N° 28 - 26,1
+jeison hurtado,120763458,Cra. 7 #32-35,1
+joan ortiz,207650324,Calle 44 N 52 – 165,1 
+maria rosales,210685386,Cl. 22 #2E-61,2
+euardo serrano,107765498,CALLE 1 # 8 - 51,2
+angelica barrios,134368635,Cra. 7 #41-131,2
+sebastian perez,125679098,Cl. 50 #49-15,2
+martha pacheco,145760823,Cra. 2 #36-69,3
+carlos quitana,105463425,Cra 32 # 38 - 64,3
+humberto pinzon,014689546,Cra. 5 #25A-11,3

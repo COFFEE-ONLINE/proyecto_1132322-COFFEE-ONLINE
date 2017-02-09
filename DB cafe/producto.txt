@@ -1,0 +1,7 @@
+lineapresentacion,precio
+Excelso*500gr, 8000
+Excelso*250gr,4000
+Excelso*125gr,2000
+Institucional*500gr,7000
+Institucional*250gr,3500
+Institucional*125gr,1750
